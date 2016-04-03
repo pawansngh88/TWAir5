@@ -36,9 +36,10 @@ public class TravelClass {
     }
     private Double getOccupancyRatio() {
         if (this.totalSeats ==0) return 0.0;
-        return this.occupiedSeats *100.0/this.totalSeats;
+        return ((double)this.occupiedSeats )/this.totalSeats;
     }
     private Double getMultiplicativeFactor(Double occupiedRatio) {
+        //System.out.println(occupiedRatio);
         if (occupiedRatio <=0.4) return 1.0;
         else if(occupiedRatio >0.4 && occupiedRatio <=0.6) return 1.3;
 

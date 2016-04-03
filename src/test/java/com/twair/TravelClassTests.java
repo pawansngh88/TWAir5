@@ -39,9 +39,9 @@ public class TravelClassTests {
     }
     @Test
     public void shouldReturnIncreasedPriceWhenBookingSeatsMoreThanParticularValue() throws Exception {
-        Integer numberOfSeats = 100;
+        Integer numberOfSeats = 45;
         economyClass.book(numberOfSeats);
-        Assert.assertEquals(15600.0, economyClass.getEffectivePrice(2), 0.01);
+        Assert.assertEquals(13000.0, economyClass.getEffectivePrice(2), 0.01);
     }
 
 }

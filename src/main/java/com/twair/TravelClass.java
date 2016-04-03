@@ -40,17 +40,18 @@ public class TravelClass {
     }
     private Double getMultiplicativeFactor(Double occupiedRatio) {
         //System.out.println(occupiedRatio);
-        if (occupiedRatio <=0.4) return 1.0;
-        else if(occupiedRatio >0.4 && occupiedRatio <=0.6) return 1.3;
+        if (occupiedRatio <=0.4) return 0.0;
+        else if(occupiedRatio >0.4 && occupiedRatio <=0.6) return 0.3;
 
-        return 1.6;
+        return 0.6;
     }
 
     public Double getEffectivePrice(int numberOfSeats) {
+        Double additionalFare = 0.0;
         if(classType==ClassType.ECONOMY) {
-            return getMultiplicativeFactor(getOccupancyRatio()) *getBasePrice() * numberOfSeats;
-        }else {
-            return getBasePrice() * numberOfSeats;
+            additionalFare = getMultiplicativeFactor(getOccupancyRatio());
         }
+
+        return  getBasePrice()* (1 + additionalFare) * numberOfSeats;
     }
 }

@@ -44,4 +44,17 @@ public class TravelClassTests {
         Assert.assertEquals(13000.0, economyClass.getEffectivePrice(2), 0.01);
     }
 
+    @Test
+    public void shouldReturnIncreasedPriceWhenBookingSeatsFirstBucket() throws Exception {
+        Integer numberOfSeats = 39;
+        economyClass.book(numberOfSeats);
+        Assert.assertEquals(10000.0, economyClass.getEffectivePrice(2), 0.01);
+    }
+
+    @Test
+    public void shouldReturnIncreasedPriceWhenBookingSeatsThirdBucket() throws Exception {
+        Integer numberOfSeats = 90;
+        economyClass.book(numberOfSeats);
+        Assert.assertEquals(16000.0, economyClass.getEffectivePrice(2), 0.01);
+    }
 }
